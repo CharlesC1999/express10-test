@@ -1,21 +1,24 @@
-import express from "express";
-import { resolve } from "path";
-const __dirname = import.meta.dirname;
+const express = require("express");
+const path = require("path");
+
+// import express from "express";
+// import { resolve } from "path";
+// const __dirname = import.meta.dirname;
 
 const app = express();
-app.use(express.static(resolve(__dirname, "public")));
+app.use(express.static(path.resolve(__dirname, "public")));
 app.use(
   "/bootstrap",
-  express.static(resolve(__dirname, "node_modules/bootstrap/dist"))
+  express.static(path.resolve(__dirname, "node_modules/bootstrap/dist"))
 );
 app.use(
   "/jquery",
-  express.static(resolve(__dirname, "node_modules/jquery/dist"))
+  express.static(path.resolve(__dirname, "node_modules/jquery/dist"))
 );
 app.use(
   "/fontawesome",
   express.static(
-    resolve(__dirname, "node_modules/@fortawesome/fontawesome-free")
+    path.resolve(__dirname, "node_modules/@fortawesome/fontawesome-free")
   )
 );
 
